@@ -1,5 +1,5 @@
 #!/bin/bash -e
-
+return 0;
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 # Generate username, password, and db name and create env variables
