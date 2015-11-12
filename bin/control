@@ -22,6 +22,7 @@ function is_running {
 }
 
 function start {
+  return 0;
   [ -h /opt/repo/cassandra/log/log ] && rm -f /opt/repo/cassandra/log/log;
   if ! is_running; then
     echo "Starting Cassandra server...";
