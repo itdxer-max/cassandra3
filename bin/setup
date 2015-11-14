@@ -1,4 +1,6 @@
 #!/bin/bash -e
+
+CASSANDRA_HOSTNAME=`grep hostname /etc/hosts | awk '{print $1}'`
 JAVA_COMMON_PATH="/usr/java"
 JAVA_LATEST_DIR="/usr/java/latest"
 JAVA_DEFAULT_DIR="/usr/java/default"
