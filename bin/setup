@@ -1,5 +1,4 @@
 #!/bin/bash -e
-return 0;
 JAVA_COMMON_PATH="/usr/java"
 JAVA_LATEST_DIR="/usr/java/latest"
 JAVA_DEFAULT_DIR="/usr/java/default"
