@@ -25,7 +25,7 @@ function start {
   [ -h /opt/repo/cassandra/log/log ] && rm -f /opt/repo/cassandra/log/log;
   if ! is_running; then
     echo "Starting Cassandra server...";
-    $OPENSHIFT_CASSANDRA_DIR/versions/3.0/bin/cassandra -p $OPENSHIFT_CASSANDRA_DIR/cassandra.pid > /dev/null 2>&1;
+    $OPENSHIFT_CASSANDRA_DIR/versions/${Version}/bin/cassandra -p $OPENSHIFT_CASSANDRA_DIR/cassandra.pid > /dev/null 2>&1;
   else
     echo "Cassandra already running" 1>&2
   fi
