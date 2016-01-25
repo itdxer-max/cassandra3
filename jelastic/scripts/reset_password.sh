@@ -3,9 +3,7 @@
 SED=$(which sed);
 GREP=$(which grep);
 
-#
-# This is an example of reset password hook in Jelastic
-#
+. /etc/jelastic/environment
 
 #$J_OPENSHIFT_APP_ADM_USER        ;   Operate this variable for the username
 #$J_OPENSHIFT_APP_ADM_PASSWORD    ;   Use this varible for your password
@@ -14,8 +12,8 @@ function _setPassword() {
         return 0;
         new_passwd_file=$(mktemp);
         old_passwd_file=$(mktemp);
-        cassanra_conf="/opt/repo/versions/3.0/conf/cassandra.yaml";
-        cqlsh_app="/opt/repo/versions/3.0/bin/cqlsh";
+        cassanra_conf="/opt/repo/versions/${Version}/conf/cassandra.yaml";
+        cqlsh_app="/opt/repo/versions/${Version}/bin/cqlsh";
 
         echo ALTER USER cassandra WITH PASSWORD \'$J_OPENSHIFT_APP_ADM_PASSWORD\'\; > $new_passwd_file;
         echo UPDATE system_auth.credentials set salted_hash=\'\$2a\$10\$vbfmLdkQdUz3Rmw.fF7Ygu6GuphqHndpJKTvElqAciUJ4SZ3pwquu\' where username=\'cassandra\'\; > $old_passwd_file;
@@ -38,4 +36,3 @@ function _setPassword() {
         while netstat -lnt | awk '$4 ~ /:'"${OPENSHIFT_CASSANDRA_DB_PORT}"'$/ {exit 1}'; do sleep 1; done;
         [ -f "$new_passwd_file" ] && $cqlsh_app -u $J_OPENSHIFT_APP_ADM_USER -p "cassandra"  --file $new_passwd_file;
 }
-
