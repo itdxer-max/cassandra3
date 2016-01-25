@@ -1,11 +1,11 @@
-# Jelastic Cassandra 2 Cartridge
+# Jelastic Cassandra 3 Cartridge
 This cartridge provides [Cassandra](http://cassandra.apache.org/) on Jelastic Platform.
 
 **Apache Cassandra** database is a NoSQL platform with continuous availability, high scalability and performance, strong security, operational simplicity and lower overall cost of ownership. 
 
 The provided linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data. Cassandra also includes a support for replicating across multiple data centers, providing lower latency and the peace of mind of knowing that you can survive regional outages.
 
-In addition, Cassandra 2 includes the following major enhancements:
+In addition, Cassandra 3 includes the following major enhancements:
 * support for lightweight transactions;
 * triggers for events, that execute a set of programmatic logic;
 * CQL enlargement;
