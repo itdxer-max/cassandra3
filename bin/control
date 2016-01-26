@@ -26,7 +26,7 @@ function start {
   if ! is_running; then
     	echo "Starting Cassandra server...";
     	$OPENSHIFT_CASSANDRA_DIR/versions/${Version}/bin/cassandra -p $OPENSHIFT_CASSANDRA_DIR/cassandra.pid > /dev/null 2>&1;
-  	retries=60
+  	retries=90
         while [ $retries -gt 0 ]; do
                 [ -n "$(netstat -nlpt 2>/dev/null | grep $OPENSHIFT_CASSANDRA_DB_PORT)" ] && break
                 sleep 1
