@@ -15,4 +15,4 @@ JAVA_DIR=`ls $JAVA_COMMON_PATH | grep jdk1.8 | head -n 1`
 
 mkdir -p $OPENSHIFT_CASSANDRA_DIR/cassandra/{log,pid,saved_caches,data,commitlog,pid}
 [ ! -e $OPENSHIFT_CASSANDRA_DIR/logs ] && ln -s $OPENSHIFT_CASSANDRA_DIR/cassandra/log/ $OPENSHIFT_CASSANDRA_DIR/logs;
-sed -i "s/localhost/$J_OPENSHIFT_CASSANDRA_DB_HOST/" /opt/repo/versions/${Version}/confcassandra.yaml
+sed -i "s/localhost/$J_OPENSHIFT_CASSANDRA_DB_HOST/" /opt/repo/versions/${Version}/conf/cassandra.yaml
