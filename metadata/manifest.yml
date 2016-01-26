@@ -50,4 +50,12 @@ Endpoints:
     Private-Port-Name: DB_PORT
     Private-Port:      9160
     Public-Port-Name:  DB_PROXY_PORT
+  - Private-IP-Name:   DB_TRANSPORT_HOST
+    Private-Port-Name: DB_TRANSPORT_PORT
+    Private-Port:      9042
+    Public-Port-Name:  DB_TRANSPORT_PROXY_PORT
+  - Private-IP-Name:   DB_STORAGE_HOST
+    Private-Port-Name: DB_STORAGE_PORT
+    Private-Port:      7000
+    Public-Port-Name:  DB_STORAGE_PROXY_PORT
 Install-Build-Required: false
