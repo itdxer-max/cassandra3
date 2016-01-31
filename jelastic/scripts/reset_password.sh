@@ -18,7 +18,7 @@ function _setPassword() {
         echo UPDATE system_auth.credentials set salted_hash=\'\$2a\$10\$vbfmLdkQdUz3Rmw.fF7Ygu6GuphqHndpJKTvElqAciUJ4SZ3pwquu\' where username=\'cassandra\'\; > $old_passwd_file;
 
         export CQLSH_HOST=$OPENSHIFT_CASSANDRA_DB_HOST;
-        export CQLSH_PORT=$OPENSHIFT_CASSANDRA_DB_PORT;
+        export CQLSH_PORT=9042;
 
         # Init data neede for password auth
         $SED -i 's/authenticator: AllowAllAuthenticator/authenticator: PasswordAuthenticator/g'     $cassanra_conf;
