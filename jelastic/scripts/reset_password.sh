@@ -12,7 +12,7 @@ function _setPassword() {
         cqlsh_app="/opt/repo/versions/${Version}/bin/cqlsh";
 
         echo ALTER USER cassandra WITH PASSWORD \'$J_OPENSHIFT_APP_ADM_PASSWORD\'\; > $new_passwd_file;
-        echo UPDATE system_auth.credentials set salted_hash=\'\$2a\$10\$vbfmLdkQdUz3Rmw.fF7Ygu6GuphqHndpJKTvElqAciUJ4SZ3pwquu\' where username=\'cassandra\'\; > $old_passwd_file;
+        echo UPDATE system_auth.roles set salted_hash=\'\$2a\$10\$vbfmLdkQdUz3Rmw.fF7Ygu6GuphqHndpJKTvElqAciUJ4SZ3pwquu\' where role=\'cassandra\'\; > $old_passwd_file;
 
         export CQLSH_HOST=$OPENSHIFT_CASSANDRA_DB_HOST;
         export CQLSH_PORT=9042;
