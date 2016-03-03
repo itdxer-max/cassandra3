@@ -70,7 +70,8 @@ calculate_heap_sizes()
     else
         max_heap_size_in_mb="$quarter_system_memory_in_mb"
     fi
-    MAX_HEAP_SIZE="${max_heap_size_in_mb}M"
+    MAX_HEAP_SIZE=400m
+    MIN_HEAP_SIZE=300m
 
     # Young gen: min(max_sensible_per_modern_cpu_core * num_cores, 1/4 * heap size)
     max_sensible_yg_per_core_in_mb="100"
@@ -136,7 +137,7 @@ esac
 # times. If in doubt, and if you do not particularly want to tweak, go with
 # 100 MB per physical CPU core.
 
-#MAX_HEAP_SIZE="4G"
+#MAX_HEAP_SIZE=700m
 #HEAP_NEWSIZE="800M"
 
 # Set this to control the amount of arenas per-thread in glibc
@@ -179,7 +180,7 @@ USING_CMS=$?
 # We only set -Xms and -Xmx if they were not defined on jvm.options file
 # If defined, both Xmx and Xms should be defined together.
 if [ $DEFINED_XMX -ne 0 ] && [ $DEFINED_XMS -ne 0 ]; then
-     JVM_OPTS="$JVM_OPTS -Xms${MAX_HEAP_SIZE}"
+     JVM_OPTS="$JVM_OPTS -Xms${MIN_HEAP_SIZE}"
      JVM_OPTS="$JVM_OPTS -Xmx${MAX_HEAP_SIZE}"
 elif [ $DEFINED_XMX -ne 0 ] || [ $DEFINED_XMS -ne 0 ]; then
      echo "Please set or unset -Xmx and -Xms flags in pairs on jvm.options file."
